@@ -1,0 +1,12 @@
+[user]
+	name = Shom Bandopadhaya
+	email = shom@bandopadhaya.com
+[global]
+[merge]
+	ff = no
+[pull]
+	rebase = true 
+[core]
+	editor = vi
+[init]
+	defaultBranch = main
