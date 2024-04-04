@@ -28,6 +28,14 @@
 		zsh
 		bat
 		ripgrep
+		firefox
+		emacs
+		cool-retro-term
+		htop
+		tealdeer
+		inxi
+		neofetch
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
