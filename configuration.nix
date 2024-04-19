@@ -98,7 +98,11 @@
 		git
 		ripgrep
 		firefox
+		zsh
   ];
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
