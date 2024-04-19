@@ -1,13 +1,9 @@
 { config, pkgs, ... }:
 
-	let
-		nixAliases = {
-			nupdate			= "nix flake update";
-			nsysbuild		= "sudo nixos-rebuild switch --flake .#vm";
-			nhomebuild	= "home-manager switch --flake .";
-		};
+{
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
-	in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "shom";
@@ -21,6 +17,10 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
+
+  imports = [
+    ./modules/shell.nix
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -100,17 +100,4 @@ set spell
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-
-	programs.bash = {
-		enable = true;
-		shellAliases = nixAliases;
-	};
-
-	programs.zsh = {
-		enable = true;
-		shellAliases = nixAliases;
-	};
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
