@@ -35,6 +35,8 @@
 		tealdeer
 		inxi
 		neofetch
+    alacritty
+    neovim
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -66,6 +68,22 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/nvim/init.vim".text = ''
+set number
+set showmatch
+set ignorecase
+set hlsearch
+set incsearch
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+"set cc=80
+syntax enable
+"set cursorline
+set spell
+'';
   };
 
   # Home Manager can also manage your environment variables through
@@ -80,7 +98,7 @@
   #  /etc/profiles/per-user/shom/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
 	programs.bash = {
