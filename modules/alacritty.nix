@@ -27,11 +27,10 @@
 
       window.opacity = 0.85;
 
-      keyboard.bindings = [
+      key_bindings = [
         {
           action = "ToggleViMode";
           key = "Space";
-          mode = "~Search";
           mods = "Control";
         }
         {
