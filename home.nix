@@ -20,12 +20,12 @@
 
   imports = [
     ./modules/shell.nix
+    ./modules/alacritty.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-		zsh
 		bat
 		ripgrep
 		firefox
@@ -35,8 +35,8 @@
 		tealdeer
 		inxi
 		neofetch
-    alacritty
     neovim
+    jetbrains-mono
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
