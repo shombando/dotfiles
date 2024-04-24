@@ -21,7 +21,7 @@ let
 in {
   home.packages = with pkgs; [
     zsh
-    # spaceship-prompt
+    spaceship-prompt
     bash
   ];
 
@@ -43,6 +43,9 @@ in {
     initExtra = ''
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+source ${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh
+autoload -U promptinit; promptinit
 '';
 
     plugins = [
