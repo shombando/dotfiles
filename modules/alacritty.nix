@@ -1,10 +1,11 @@
 {pkgs, pkgs-unstable, ...}: {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-unstable; [
     alacritty
   ];
 
   programs.alacritty = {
     enable = true;
+    package = pkgs-unstable.alacritty;
     settings = {
       window = {
         decorations = "none";
@@ -14,6 +15,7 @@
           y = 5;
         };
         startup_mode = "Maximized";
+        opacity = 0.85;
       };
 
       scrolling.history = 10000;
@@ -25,9 +27,8 @@
         size = 16;
       };
 
-      window.opacity = 0.85;
 
-      key_bindings = [
+      keyboard.bindings = [
         {
           action = "ToggleViMode";
           key = "Space";
