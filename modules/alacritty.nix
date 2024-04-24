@@ -1,11 +1,11 @@
 {pkgs, pkgs-unstable, ...}: {
-  home.packages = with pkgs-unstable; [
+  home.packages = with pkgs; [
     alacritty
   ];
 
   programs.alacritty = {
     enable = true;
-    package = pkgs-unstable.alacritty;
+    package = pkgs.alacritty;
     settings = {
       window = {
         decorations = "none";
@@ -28,7 +28,7 @@
       };
 
 
-      keyboard.bindings = [
+      key_bindings = [
         {
           action = "ToggleViMode";
           key = "Space";
