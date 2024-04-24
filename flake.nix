@@ -8,7 +8,7 @@
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+	outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
 	let
 		# System Settings
 		system = "x86_64-linux";

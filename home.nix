@@ -26,15 +26,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-		bat
-		ripgrep
 		firefox
 		emacs
 		cool-retro-term
-		htop
-		tealdeer
-		inxi
-		neofetch
     neovim
     jetbrains-mono
 

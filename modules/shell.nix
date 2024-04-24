@@ -1,12 +1,15 @@
 { config, pkgs, lib, ... }:
 let
   shAliases = {
-    nupdate			= "nix flake update";
-    nsysbuild		= "sudo nixos-rebuild switch --flake .#vm";
-    nhomebuild	= "home-manager switch --flake .";
-    ndeletegens = "nix-collect-garbage -d";
-    ndeleteupto = "nix-collect-garbage --delete-older-than=";
+    #Dir and nav
+    ls   = "eza --long --all --header --no-permissions --group-directories-first --smart-group --total-size";
+    "~"  = "cd ~";
+    ".." = "cd ..";
+    cg   = "cd `git rev-parse --show-toplevel`";
+    cat  = "bat";
+    cp   = "xcp";
 
+    #Git
     gs = "git status";
     ga = "git add --all";
     gd = "git diff";
@@ -16,13 +19,30 @@ let
     gp = "git push";
     gu = "ga && gc 'update' && gp";
     gl = "git log --graph  --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+
+    #Nix
+    nupdate			= "nix flake update";
+    nsysbuild		= "sudo nixos-rebuild switch --flake .#vm";
+    nhomebuild	= "home-manager switch --flake .";
+    ndeletegens = "nix-collect-garbage -d";
+    ndeleteupto = "nix-collect-garbage --delete-older-than=";
   };
 
 in {
   home.packages = with pkgs; [
-    zsh
-    spaceship-prompt
     bash
+		bat
+    curl
+    eza
+		htop
+		inxi
+    jp
+		neofetch
+		ripgrep
+    spaceship-prompt
+		tealdeer
+    xcp
+    zsh
   ];
 
  programs.bash = {
@@ -37,12 +57,12 @@ in {
     shellAliases = shAliases;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    # autosuggestions.enable = true;
-    # historySubstringSearch = true;
 
     initExtra = ''
 bindkey '^[[A' history-substring-search-up
+bindkey '^[OA' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^[OB' history-substring-search-down
 
 source ${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh
 autoload -U promptinit; promptinit
