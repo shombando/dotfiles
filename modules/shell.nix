@@ -41,6 +41,7 @@ in {
 		ripgrep
     spaceship-prompt
 		tealdeer
+    tree
     xcp
     zsh
   ];
