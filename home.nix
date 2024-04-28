@@ -21,6 +21,7 @@
   imports = [
     ./modules/shell.nix
     ./modules/alacritty.nix
+    ./modules/gnome.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
