@@ -19,9 +19,11 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   imports = [
+    ./config/gitconfig.nix
     ./modules/shell.nix
     ./modules/alacritty.nix
     ./modules/gnome.nix
+    ./modules/nvim.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -51,8 +53,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".gitconfig".source = ./config/.gitconfig;
-
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -63,22 +63,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    ".config/nvim/init.vim".text = ''
-set number
-set showmatch
-set ignorecase
-set hlsearch
-set incsearch
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set autoindent
-"set cc=80
-syntax enable
-"set cursorline
-set spell
-'';
   };
 
   # Home Manager can also manage your environment variables through
