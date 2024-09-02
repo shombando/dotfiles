@@ -1,0 +1,11 @@
+name = "nord-light"
+
+[palette]
+background = "#f1f3f8"
+text 	   = "#6181a1"
+action 	   = "#81a1c1"
+accent 	   = "#b48ead"
+alert 	   = "#b06750"
+error 	   = "#dbab6b"
+info 	   = "#88c0d0"
+success    = "#a3be8c"

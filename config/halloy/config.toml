@@ -1,0 +1,42 @@
+# For a complete list of available options,
+# please visit https://halloy.squidowl.org/.
+
+theme = "nord"
+scale_factor = 1
+[font]
+family = "JetBrains Mono"
+size = 20
+
+[servers.chat-sr-ht]
+nickname = "shom"
+server = "chat.sr.ht"
+port = 6697
+use_tls = true
+username = "shom@halloynix/irc.libera.chat"
+password_file = "/home/shom/secrets/.config/halloy/passwd"
+channels = [""]
+
+[sidebar]
+width = 200
+
+[buffer.server_messages.join]
+enabled = false
+[buffer.server_messages.quit]
+enabled = false
+[buffer.server_messages.topic]
+enabled = false
+# [buffer.text_input]
+# auto_format = "markdown"
+
+[notifications.highlight]
+enabled = true
+show_toast = true
+mute = true
+#sound = ""
+
+[keyboard]
+move_up = "alt+k"
+move_down = "alt+j"
+move_left = "alt+h"
+move_right = "alt+l"
+command_bar = "shift+ctrl+p"

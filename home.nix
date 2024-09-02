@@ -38,6 +38,7 @@
   ++
   (with pkgs-unstable; [
     signal-desktop
+    halloy
   ]);
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -68,6 +69,13 @@
   };
 
   home.file.".config/nvim/init.vim".source = ./config/nvim/init.vim;
+
+  # Halloy + themes
+  home.file.".config/halloy/config.toml".source = ./config/halloy/config.toml;
+  home.file.".config/halloy/themes/nord.toml".source = ./config/halloy/themes/nord.toml;
+  home.file.".config/halloy/themes/nord-light.toml".source = ./config/halloy/themes/nord-light.toml;
+  home.file.".config/halloy/themes/boo-berry.toml".source = ./config/halloy/themes/boo-berry.toml;
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at
