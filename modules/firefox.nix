@@ -16,57 +16,6 @@ in
     firefox = {
       enable = true;
 
-      profiles = {
-        ${config.home.username} = {
-          search = {
-            force = true;
-            default = "DuckDuckGo";
-            order = [ "DuckDuckGo" "Wikipedia (en)" ];
-            engines = {
-              "Amazon.com".metaData.hidden = true;
-              "Bing".metaData.hidden = true;
-              "eBay".metaData.hidden = true;
-              "Google".metaData.alias = "@g";
-              "Wikipedia (en)".metaData.alias = "@w";
-
-              "GitHub" = {
-                urls = [{
-                  template = "https://github.com/search";
-                  params = [
-                    { name = "q"; value = "{searchTerms}"; }
-                  ];
-                }];
-                icon = "${pkgs.fetchurl {
-                  url = "https://github.githubassets.com/favicons/favicon.svg";
-                  sha256 = "sha256-apV3zU9/prdb3hAlr4W5ROndE4g3O1XMum6fgKwurmA=";
-                }}";
-                definedAliases = [ "@gh" ];
-              };
-
-              "Nix Packages" = {
-                urls = [{
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    { name = "channel"; value = "unstable"; }
-                    { name = "query"; value = "{searchTerms}"; }
-                  ];
-                }];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
-              };
-
-              "NixOS Wiki" = {
-                urls = [{
-                  template = "https://nixos.wiki/index.php";
-                  params = [{ name = "search"; value = "{searchTerms}"; }];
-                }];
-                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@nw" ];
-              };
-            };
-          };
-        };
-      };
 
       policies = {
         # POLICIES from about:policies#documentation
@@ -127,10 +76,58 @@ in
             installation_mode = "force_installed";
           };
 
-          # Amazon search
+          # Consent-O-Matic 
           "gdpr@cavi.au.dk" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/consent-o-matic/latest.xpi";
             installation_mode = "force_installed";
+          };
+          # SEARCH https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.search.engines
+          search = {
+            force = true;
+            default = "DuckDuckGo";
+            order = [ "DuckDuckGo" "Wikipedia (en)" ];
+            engines = {
+              "Amazon.com".metaData.hidden = true;
+              "Bing".metaData.hidden = true;
+              "eBay".metaData.hidden = true;
+              "Google".metaData.alias = "@g";
+              "Wikipedia (en)".metaData.alias = "@w";
+
+              "GitHub" = {
+                urls = [{
+                  template = "https://github.com/search";
+                  params = [
+                    { name = "q"; value = "{searchTerms}"; }
+                  ];
+                }];
+                icon = "${pkgs.fetchurl {
+                  url = "https://github.githubassets.com/favicons/favicon.svg";
+                  sha256 = "sha256-apV3zU9/prdb3hAlr4W5ROndE4g3O1XMum6fgKwurmA=";
+                }}";
+                definedAliases = [ "@gh" ];
+              };
+
+              "Nix Packages" = {
+                urls = [{
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    { name = "channel"; value = "unstable"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+
+              "NixOS Wiki" = {
+                urls = [{
+                  template = "https://nixos.wiki/index.php";
+                  params = [{ name = "search"; value = "{searchTerms}"; }];
+                }];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@nw" ];
+              };
+            };
           };
         };
       };
