@@ -19,9 +19,9 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   imports = [
-    ./config/gitconfig.nix
     ./modules/alacritty.nix
     ./modules/firefox.nix
+    ./modules/gitconfig.nix
     ./modules/gnome.nix
 #    ./modules/nvim.nix
     ./modules/shell.nix
@@ -29,11 +29,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
+  # Command line tools go to shell.nix
   home.packages = (with pkgs; [
 		emacs
     jetbrains-mono
-    jq
-    neovim
   ])
   ++
   (with pkgs-unstable; [

@@ -36,8 +36,9 @@ in {
     eza
 		htop
 		inxi
-    jp
+    jq
 		neofetch
+    neovim
 		ripgrep
     spaceship-prompt
 		tealdeer
