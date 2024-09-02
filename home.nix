@@ -20,16 +20,16 @@
 
   imports = [
     ./config/gitconfig.nix
-    ./modules/shell.nix
     ./modules/alacritty.nix
+    ./modules/firefox.nix
     ./modules/gnome.nix
 #    ./modules/nvim.nix
+    ./modules/shell.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-		firefox
 		emacs
 		cool-retro-term
     neovim

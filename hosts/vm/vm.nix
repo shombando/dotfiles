@@ -97,7 +97,6 @@
 		wget
 		git
 		ripgrep
-		firefox
 		zsh
   ];
   environment.shells = with pkgs; [ zsh ];
