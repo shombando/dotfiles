@@ -81,6 +81,57 @@ in
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/consent-o-matic/latest.xpi";
             installation_mode = "force_installed";
           };
+
+          # Firefox Multi-Account Containers
+          "@testpilot-containers" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
+            installation_mode = "force_installed";
+          };
+        };
+      };
+
+      # PROFILE SPECIFIC
+      profiles = {
+        ${config.home.username} = {
+          # MULTI-CONTAINER https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.containers
+          containers = {
+            proton = {
+              color = "purple";
+              icon = "circle";
+              id = 1;
+            };
+            srht = {
+              color = "blue";
+              icon = "circle";
+              id = 2;
+            };
+            fosstodon = {
+              color = "pink";
+              icon = "circle";
+              id = 3;
+            };
+            github = {
+              color = "green";
+              icon = "circle";
+              id = 4;
+            };
+            google = {
+              color = "orange";
+              icon = "circle";
+              id = 5;
+            };
+            sc = {
+              color = "yellow";
+              icon = "circle";
+              id = 6;
+            };
+            work = {
+              color = "turquoise";
+              icon = "circle";
+              id = 7;
+            };
+          };
+
           # SEARCH https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.search.engines
           search = {
             force = true;
