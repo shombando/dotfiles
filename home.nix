@@ -55,21 +55,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-".config/nvim/init.vim".text = ''
-set number
-set showmatch
-set ignorecase
-set hlsearch
-set incsearch
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set autoindent
-"set cc=80
-syntax enable
-"set cursorline
-set spell
-'';
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -82,6 +67,7 @@ set spell
     # '';
   };
 
+  home.file.".config/nvim/init.vim".source = ./config/nvim/init.vim;
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at

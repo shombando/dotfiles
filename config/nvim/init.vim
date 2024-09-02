@@ -1,0 +1,13 @@
+set number
+set showmatch
+set ignorecase
+set hlsearch
+set incsearch
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+"set cc=80
+syntax enable
+"set cursorline
+set spell
