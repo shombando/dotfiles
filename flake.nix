@@ -24,7 +24,7 @@
 		nixosConfigurations = {
 			vm = lib.nixosSystem {
 				inherit system;
-				modules = [ ./hosts/vm/vm.nix ];
+				modules = [ ./hosts/vm/configuration.nix ];
         specialArgs = {
           inherit pkgs-unstable;
         };
