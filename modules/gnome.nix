@@ -7,10 +7,20 @@ in {
     dconf
   ];
 
-  #https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts
+  # https://heywoodlh.io/nixos-gnome-settings-and-keyboard-shortcuts
   dconf.settings = {
     "org/gnome/system/location" = {
       enabled = false;
+    };
+
+    "org/gnome/desktop/peripherals/mouse" = {
+      natural-scroll = true;
+    };
+
+   "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+      two-finger-scrolling-enabled = true;
+      natural-scroll = true;
     };
 
     "org/gnome/desktop/interface" = {
@@ -22,6 +32,27 @@ in {
 
     "org/gnome/mutter" = {
       workspaces-only-on-primary = true;
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces=4;
+    };
+
+    "org/gnome/desktop/wm/keybindings" = {
+      close = ["<Super>q"];
+      toggle-maximized = ["<Super>m"];
+      move-to-workspace-left = ["<Super><Alt>j"];
+      move-to-workspace-right = ["<Super><Alt>k"];
+      switch-to-workspace-left = ["<Super><Control>j"];
+      switch-to-workspace-right = ["<Super><Control>k"];
+      switch-to-workspace-1 = ["<Super>1"];
+      switch-to-workspace-2 = ["<Super>2"];
+      switch-to-workspace-3 = ["<Super>3"];
+      switch-to-workspace-4 = ["<Super>4"];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      screensaver = ["<Super><Control>Escape"];
     };
 
     "org/gnome/settings-daemon/plugins/color" = {
