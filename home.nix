@@ -31,10 +31,9 @@
   # environment.
   home.packages = with pkgs; [
 		emacs
-		cool-retro-term
-    neovim
     jetbrains-mono
-
+    jq
+    neovim
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
