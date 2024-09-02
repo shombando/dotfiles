@@ -23,6 +23,7 @@
     ./modules/shell.nix
     ./modules/alacritty.nix
     ./modules/gnome.nix
+    ./modules/immich.nix
 #    ./modules/nvim.nix
   ];
 
@@ -34,7 +35,6 @@
 		cool-retro-term
     neovim
     jetbrains-mono
-
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

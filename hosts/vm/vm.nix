@@ -79,11 +79,24 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  virtualisation = {
+    oci-containers.backend = "podman";
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+  
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.shom = {
-				isNormalUser = true;
-				description = "Shom Bandopadhaya";
-				extraGroups = [ "networkmanager" "wheel" ];
+		isNormalUser = true;
+		description = "Shom Bandopadhaya";
+		extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # Allow unfree packages
@@ -99,6 +112,15 @@
 		ripgrep
 		firefox
 		zsh
+    systemd
+    #podman related
+    podman
+    podman-compose
+    runc
+    conmon
+    skopeo
+    slirp4netns
+    fuse-overlayfs 
   ];
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
