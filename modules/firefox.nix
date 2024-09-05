@@ -34,6 +34,7 @@ in
         DisplayBookmarksToolbar = "newtab"; # options: "never" "always" or "newtab"
         DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
         SearchBar = "unified"; # alternative: "separate"
+        OfferToSaveLogins = false;
 
         # PREFERENCES from about:config
         "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
@@ -85,6 +86,12 @@ in
           # Firefox Multi-Account Containers
           "@testpilot-containers" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
+            installation_mode = "force_installed";
+          };
+
+          # Temporary Containers
+          "{c607c8df-14a7-4f28-894f-29e8722976af}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
             installation_mode = "force_installed";
           };
         };
