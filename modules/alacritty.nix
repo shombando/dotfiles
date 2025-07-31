@@ -28,7 +28,7 @@
       };
 
 
-      key_bindings = [
+      keyboard.bindings = [
         {
           action = "ToggleViMode";
           key = "Space";

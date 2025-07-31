@@ -33,6 +33,7 @@ in {
     bash
 		bat
     curl
+    dua
     eza
 		htop
 		inxi
@@ -55,7 +56,7 @@ in {
   # ZSH is available system wide, but I want home.nix to be portable
 	programs.zsh = {
 		enable = true;
-    dotDir = ".config/zsh";
+    dotDir = config.xdg.configHome;
     shellAliases = shAliases;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
