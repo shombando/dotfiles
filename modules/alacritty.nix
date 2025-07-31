@@ -14,7 +14,7 @@
           x = 5;
           y = 5;
         };
-        startup_mode = "Maximized";
+        # startup_mode = "Maximized";
         opacity = 0.85;
       };
 

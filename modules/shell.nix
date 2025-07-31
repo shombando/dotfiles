@@ -14,9 +14,9 @@ let
     ga = "git add --all";
     gd = "git diff";
     gc = "git commit -m";
-    gf = "git fetch";
-    gF = "git pull";
-    gp = "git push";
+    gf = "git fetch -v";
+    gF = "git pull -v";
+    gp = "git push -v";
     gu = "ga && gc 'update' && gp";
     gl = "git log --graph  --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
 
@@ -44,6 +44,7 @@ in {
     spaceship-prompt
 		tealdeer
     tree
+		tmux
     xcp
     zsh
   ];
@@ -61,7 +62,7 @@ in {
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
 bindkey '^[[A' history-substring-search-up
 bindkey '^[OA' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -69,6 +70,14 @@ bindkey '^[OB' history-substring-search-down
 
 source ${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh
 autoload -U promptinit; promptinit
+
+# Add nix to path on non-NixOS
+if [ -e /home/shom/.nix-profile/etc/profile.d/nix.sh ]; then . /home/shom/.nix-profile/etc/profile.d/nix.sh; fi
+
+# Start gnome-keyring
+eval $(gnome-keyring-daemon --start --daemonize --components=gpg,pkcs11,secrets,ssh)
+
+export SSH_AUTH_SOCK
 '';
 
     plugins = [
