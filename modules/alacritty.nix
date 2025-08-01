@@ -3,13 +3,10 @@
     alacritty
   ];
 
-  imports = [
-   ./alacritty-nord.nix #theme colors
-  ];
-
   programs.alacritty = {
     enable = true;
     package = pkgs.alacritty;
+    theme = "nord";
     settings = {
       window = {
         decorations = "none";
