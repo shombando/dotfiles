@@ -80,6 +80,13 @@ eval $(gnome-keyring-daemon --start --daemonize --components=gpg,pkcs11,secrets,
 export SSH_AUTH_SOCK
 '';
 
+		initExtra = ''
+			mkcd() {
+				mkdir -p "$1"
+				cd "$1"
+			}
+		'';
+
     plugins = [
       {
         # will source zsh-autosuggestions.plugin.zsh

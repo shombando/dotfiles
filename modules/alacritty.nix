@@ -6,7 +6,7 @@
   programs.alacritty = {
     enable = true;
     package = pkgs.alacritty;
-    theme = "nord";
+    theme = "catppuccin_mocha";
     settings = {
       window = {
         decorations = "none";
