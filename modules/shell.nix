@@ -8,6 +8,8 @@ let
     cg   = "cd `git rev-parse --show-toplevel`";
     cat  = "bat";
     cp   = "xcp";
+    vi   = "nvim";
+    neofetch = "fastfetch";
 
     #Git
     gs = "git status";
@@ -38,7 +40,7 @@ in {
 		htop
 		inxi
     jq
-		neofetch
+		fastfetch
     neovim
 		ripgrep
     spaceship-prompt
