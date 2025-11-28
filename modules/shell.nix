@@ -11,7 +11,12 @@ let
     vi   = "nvim";
     neofetch = "fastfetch";
 
-    #Git
+    #Photos
+		#needs imagemagick's montage installed and /etc/imagemagick*/policy.xml's domain.disk.value changed (to 8GB)
+    contactsheet = "montage -verbose -background 'black' -fill 'gray' -define jpeg=500x500 -geometry 500x500+2+2 -auto-orient *.jpg -tile 6x contactsheet.png";
+    removeGPS = "exiftool -gps*=";
+
+		#Git
     gs = "git status";
     ga = "git add --all";
     gd = "git diff";
