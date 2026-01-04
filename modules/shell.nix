@@ -5,6 +5,7 @@ let
     ls   = "eza --long --all --header --no-permissions --group-directories-first --smart-group --total-size";
     "~"  = "cd ~";
     ".." = "cd ..";
+    "-" = "cd -";
     cg   = "cd `git rev-parse --show-toplevel`";
     cat  = "bat";
     cp   = "xcp";
