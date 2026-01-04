@@ -127,6 +127,16 @@ in
             icon = "circle";
             id = 8;
           };
+          gitforges = {
+            color = "green";
+            icon = "circle";
+            id = 9;
+          };
+          ebay = {
+            color = "blue";
+            icon = "circle";
+            id = 10;
+          };
         };
         spacesForce = true;
         spaces = 
@@ -145,6 +155,12 @@ in
               icon = "🔒";
               container = containers.proton.id;
             };
+            "💩" = {
+              id = "d70529b0-6895-4c32-a5a9-1d7df4305543";
+              position = 3000;
+              icon = "💩";
+              container = containers.google.id;
+            };
           };
 
         pinsForce = true;
@@ -160,6 +176,41 @@ in
               workspace = spaces."🔒".id;
               url = "https://mail.proton.me/u/0/inbox";
               position = 101;
+            };
+            "calendar" = {
+              id = "3251bb9c-6a39-4baf-9ef2-c2ca0d35742a";
+              container = containers.proton.id;
+              workspace = spaces."🔒".id;
+              url = "https://calendar.proton.me/u/0/";
+              position = 102;
+            };
+            "drive" = {
+              id = "8d5e6952-cfae-4583-a955-225f02407584";
+              container = containers.proton.id;
+              workspace = spaces."🔒".id;
+              url = "https://drive.proton.me/u/0/";
+              position = 103;
+            };
+            "gmail" = {
+              id = "839035d8-2e2d-43d9-89f8-dd07c73d3243";
+              container = containers.google.id;
+              workspace = spaces."💩".id;
+              url = "https://mail.google.com";
+              position = 100;
+            };
+            "voice" = {
+              id = "0e2f4e37-80d5-4d97-a80d-43a8cd6093d0";
+              container = containers.google.id;
+              workspace = spaces."💩".id;
+              url = "https://voice.google.com/u/0/messages";
+              position = 101;
+            };
+            "youtube" = {
+              id = "821083f5-5e9b-4c62-b82a-d301c05c1b30";
+              container = containers.google.id;
+              workspace = spaces."💩".id;
+              url = "https://youtube.com";
+              position = 102;
             };
             "tidal" = {
               id = "3ec27e62-ce9f-479b-a1a2-9f9a7ad4996c";
