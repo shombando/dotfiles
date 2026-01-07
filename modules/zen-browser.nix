@@ -221,10 +221,17 @@ in
             };
             "readeck" = {
               id = "b044a63b-ef46-429b-ae15-14e78c578078";
-              container = containers.fedi.id;
+              container = containers.vps.id;
               workspace = spaces."😎".id;
               url = "https://readeck.shom.dev";
               position = 101;
+            };
+            "gts" = {
+              id = "4ece24d9-a4df-4c41-96e0-ab3453c28eff";
+              container = containers.fedi.id;
+              workspace = spaces."😎".id;
+              url = "https://gts.shom.dev/settings";
+              position = 800;
             };
             "phanpy" = {
               id = "eeebd670-c879-4dfb-b015-6c472e965b98";
