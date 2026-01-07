@@ -19,21 +19,21 @@ in
 
     policies = {
       # POLICIES from about:policies#documentation
-      AutofillAddressEnabled = false;
-      AutofillCreditCardEnabled = false;
-      DisableAppUpdate = true;
-      DisableFeedbackCommands = true;
-      DisableFirefoxStudies = true;
-      DisablePocket = true;
-      DisableTelemetry = true;
-      DontCheckDefaultBrowser = true;
-      NoDefaultBookmarks = true;
-      OfferToSaveLogins = false;
+      AutofillAddressEnabled = lock-false;
+      AutofillCreditCardEnabled = lock-false;
+      DisableAppUpdate = lock-true;
+      DisableFeedbackCommands = lock-true;
+      DisableFirefoxStudies = lock-true;
+      DisablePocket = lock-true;
+      DisableTelemetry = lock-true;
+      DontCheckDefaultBrowser = lock-true;
+      NoDefaultBookmarks = lock-true;
+      OfferToSaveLogins = lock-false;
       EnableTrackingProtection = {
-        Value= true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
+        Value= lock-true;
+        Locked = lock-true;
+        Cryptomining = lock-true;
+        Fingerprinting = lock-true;
       };
 		};
 
