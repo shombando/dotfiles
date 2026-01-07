@@ -20,7 +20,8 @@
 
   imports = [
     ./modules/alacritty.nix
-    ./modules/firefox.nix
+    # ./modules/firefox.nix
+    ./modules/zen-browser
     ./modules/gitconfig.nix
     ./modules/gnome.nix
 #    ./modules/nvim.nix
