@@ -38,11 +38,8 @@ in
 		};
 
     profiles = {
-      ${userName} = {
-        search = {
-          force = true;
-          default = "Qwant";
-          order = [ "Qwant" "DuckDuckGo" "Wikipedia (en)" ];
+      ${userName} =
+        let
           engines = {
             "Amazon.com".metaData.hidden = true;
             "Bing".metaData.hidden = true;
@@ -81,68 +78,62 @@ in
               definedAliases = [ "@nw" ];
             };
           };
-        };
 
-        # MULTI-CONTAINER https://nix-community.github.io/home-manager/options.xhtml#opt-programs.firefox.profiles._name_.containers
-        containersForce = true;
-        containers = {
-          #colors: "blue", "turquoise", "green", "yellow", "orange", "red", "pink", "purple", "toolbar". 
-          proton = {
-            color = "purple";
-            icon = "circle";
-            id = 1;
+          containers = {
+            #colors: "blue", "turquoise", "green", "yellow", "orange", "red", "pink", "purple", "toolbar".
+            proton = {
+              color = "purple";
+              icon = "circle";
+              id = 1;
+            };
+            fedi = {
+              color = "pink";
+              icon = "circle";
+              id = 2;
+            };
+            local = {
+              color = "yellow";
+              icon = "circle";
+              id = 3;
+            };
+            vps = {
+              color = "turquoise";
+              icon = "circle";
+              id = 4;
+            };
+            google = {
+              color = "orange";
+              icon = "circle";
+              id = 5;
+            };
+            sc = {
+              color = "yellow";
+              icon = "circle";
+              id = 6;
+            };
+            bradley = {
+              color = "red";
+              icon = "circle";
+              id = 7;
+            };
+            tidal = {
+              color = "toolbar";
+              icon = "circle";
+              id = 8;
+            };
+            gitforges = {
+              color = "green";
+              icon = "circle";
+              id = 9;
+            };
+            ebay = {
+              color = "blue";
+              icon = "circle";
+              id = 10;
+            };
           };
-          fedi = {
-            color = "pink";
-            icon = "circle";
-            id = 2;
-          };
-          local = {
-            color = "yellow";
-            icon = "circle";
-            id = 3;
-          };
-          vps = {
-            color = "turquoise";
-            icon = "circle";
-            id = 4;
-          };
-          google = {
-            color = "orange";
-            icon = "circle";
-            id = 5;
-          };
-          sc = {
-            color = "yellow";
-            icon = "circle";
-            id = 6;
-          };
-          bradley = {
-            color = "red";
-            icon = "circle";
-            id = 7;
-          };
-          tidal = {
-            color = "toolbar";
-            icon = "circle";
-            id = 8;
-          };
-          gitforges = {
-            color = "green";
-            icon = "circle";
-            id = 9;
-          };
-          ebay = {
-            color = "blue";
-            icon = "circle";
-            id = 10;
-          };
-        };
-        spacesForce = true;
-        spaces = 
-          let
-            containers = config.programs.zen-browser.profiles.${userName}.containers;
-          in {
+
+          spaces = {
             "😎" = {
               id = "c6de089c-410d-4206-961d-ab11f988d40a";
               position = 1000;
@@ -163,13 +154,19 @@ in
             };
           };
 
-        pinsForce = true;
-        pins =
-          let 
-            containers = config.programs.zen-browser.profiles.${userName}.containers;
-            spaces = config.programs.zen-browser.profiles.${userName}.spaces;
-            vpsFolderId = "ee36875c-bb6f-4c01-b562-ecff45cecc84";
-          in {
+          pinnedFolders = {
+            vpsFolder = {
+              id = "ee36875c-bb6f-4c01-b562-ecff45cecc84";
+              container = containers.vps.id;
+              workspace = spaces."😎".id;
+              isGroup = true;
+              isFolderCollapsed = true;
+              editedTitle = true;
+              position = 001;
+            };
+          };
+
+          pins = {
             "mail" = {
               id = "be4ca61d-bff7-408a-acdb-a95075feb63f";
               container = containers.proton.id;
@@ -240,20 +237,12 @@ in
               url = "https://social.shom.dev";
               position = 900;
             };
-            "vps" = {
-              id = vpsFolderId;
-              container = containers.vps.id;
-              workspace = spaces."😎".id;
-              isGroup = true;
-              isFolderCollapsed = true;
-              editedTitle = true;
-              position = 001;
-            };
+            "vps" = pinnedFolders.vpsFolder;
             "uptime" = {
               id = "d8c602c1-938a-45dc-8cb0-69f9335b4562";
               container = containers.vps.id;
               workspace = spaces."😎".id;
-              folderParentId = vpsFolderId;
+              folderParentId = pinnedFolders.vpsFolder.id;
               url = "https://status.shom.dev";
               position = 201;
             };
@@ -261,7 +250,7 @@ in
               id = "cef1c204-14f8-4ddb-8fbc-9dc363f0f921";
               container = containers.vps.id;
               workspace = spaces."😎".id;
-              folderParentId = vpsFolderId;
+              folderParentId = pinnedFolders.vpsFolder.id;
               url = "https://ntfy.shom.dev";
               position = 202;
             };
@@ -269,12 +258,28 @@ in
               id = "a41a1aaf-67c2-44af-b4d6-e373ae6cfb1a";
               container = containers.vps.id;
               workspace = spaces."😎".id;
-              folderParentId = vpsFolderId;
+              folderParentId = pinnedFolders.vpsFolder.id;
               url = "https://umami.shom.dev";
               position = 203;
             };
           };
-      };
+        in {
+          search = {
+            force = true;
+            default = "Qwant";
+            order = [ "Qwant" "DuckDuckGo" "Wikipedia (en)" ];
+            engines = engines;
+          };
+
+          containersForce = true;
+          containers = containers; 
+
+          spacesForce = true;
+          spaces = spaces;
+
+          pinsForce = true;
+          pins = pins;
+        };
 	  };
 	};
 }
