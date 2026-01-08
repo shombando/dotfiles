@@ -2,75 +2,75 @@
 let
   shAliases = {
     #Dir and nav
-    ls   = "eza --long --all --header --no-permissions --group-directories-first --smart-group --total-size";
-    "~"  = "cd ~";
+    ls	 = "eza --long --all --header --no-permissions --group-directories-first --smart-group --total-size";
+    "~"	 = "cd ~";
     ".." = "cd ..";
     "-" = "cd -";
-    cg   = "cd `git rev-parse --show-toplevel`";
-    cat  = "bat";
-    cp   = "xcp";
-    vi   = "nvim";
+    cg	 = "cd `git rev-parse --show-toplevel`";
+    cat	 = "bat";
+    cp	 = "xcp";
+    vi	 = "nvim";
     neofetch = "fastfetch";
 
-    #Photos
+		#Photos
 		#needs imagemagick's montage installed and /etc/imagemagick*/policy.xml's domain.disk.value changed (to 8GB)
-    contactsheet = "montage -verbose -background 'black' -fill 'gray' -define jpeg=500x500 -geometry 500x500+2+2 -auto-orient *.jpg -tile 6x contactsheet.png";
-    removeGPS = "exiftool -gps*=";
+		contactsheet = "montage -verbose -background 'black' -fill 'gray' -define jpeg=500x500 -geometry 500x500+2+2 -auto-orient *.jpg -tile 6x contactsheet.png";
+		removeGPS = "exiftool -gps*=";
 
 		#Git
-    gs = "git status";
-    ga = "git add --all";
-    gd = "git diff";
-    gc = "git commit -m";
-    gf = "git fetch -v";
-    gF = "git pull -v";
-    gp = "git push -v";
-    gu = "ga && gc 'update' && gp";
-    gl = "git log --graph  --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
+		gs = "git status";
+		ga = "git add --all";
+		gd = "git diff";
+		gc = "git commit -m";
+		gf = "git fetch -v";
+		gF = "git pull -v";
+		gp = "git push -v";
+		gu = "ga && gc 'update' && gp";
+		gl = "git log --graph	 --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'";
 
-    #Nix
-    nupdate			= "nix flake update";
-    nsysbuild		= "sudo nixos-rebuild switch --flake .#vm";
-    nhomebuild	= "home-manager switch --flake .";
-    ndeletegens = "nix-collect-garbage -d";
-    ndeleteupto = "nix-collect-garbage --delete-older-than=";
-  };
+		#Nix
+		nupdate			= "nix flake update";
+		nsysbuild		= "sudo nixos-rebuild switch --flake .#vm";
+		nhomebuild	= "home-manager switch --flake .";
+		ndeletegens = "nix-collect-garbage -d";
+		ndeleteupto = "nix-collect-garbage --delete-older-than=";
+	};
 
 in {
-  home.packages = with pkgs; [
-    bash
+	home.packages = with pkgs; [
+		bash
 		bat
-    curl
-    dua
-    eza
+		curl
+		dua
+		eza
 		htop
 		inxi
-    jq
+		jq
 		fastfetch
-    neovim
+		neovim
 		ripgrep
-    spaceship-prompt
+		spaceship-prompt
 		tealdeer
-    tree
+		tree
 		tmux
-    xcp
-    zsh
-  ];
+		xcp
+		zsh
+	];
 
- programs.bash = {
-    enable = true;
-    shellAliases = shAliases;
-  };
+  programs.bash = {
+		enable = true;
+		shellAliases = shAliases;
+	};
 
-  # ZSH is available system wide, but I want home.nix to be portable
+	# ZSH is available system wide, but I want home.nix to be portable
 	programs.zsh = {
 		enable = true;
-    dotDir = config.xdg.configHome;
-    shellAliases = shAliases;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
+		dotDir = config.xdg.configHome;
+		shellAliases = shAliases;
+		enableCompletion = true;
+		syntaxHighlighting.enable = true;
 
-    initContent = ''
+		initContent = ''
 bindkey '^[[A' history-substring-search-up
 bindkey '^[OA' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -86,38 +86,36 @@ if [ -e /home/shom/.nix-profile/etc/profile.d/nix.sh ]; then . /home/shom/.nix-p
 eval $(gnome-keyring-daemon --start --daemonize --components=gpg,pkcs11,secrets,ssh)
 
 export SSH_AUTH_SOCK
+
+mkcd() {
+  mkdir -p "$1"
+  cd "$1"
+}
 '';
 
-		initExtra = ''
-			mkcd() {
-				mkdir -p "$1"
-				cd "$1"
+		plugins = [
+			{
+				# will source zsh-autosuggestions.plugin.zsh
+				name = "zsh-autosuggestions";
+				src = pkgs.fetchFromGitHub {
+					owner = "zsh-users";
+					repo = "zsh-autosuggestions";
+					rev = "v0.7.0";
+					# sha256 = lib.fakeSha256;
+					sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w";
+				};
 			}
-		'';
-
-    plugins = [
-      {
-        # will source zsh-autosuggestions.plugin.zsh
-        name = "zsh-autosuggestions";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-autosuggestions";
-          rev = "v0.7.0";
-          # sha256 = lib.fakeSha256;
-          sha256 = "sha256-KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w";
-        };
-      }
-      {
-        # will source zsh-history-substring-search.plugin.zsh
-        name = "zsh-history-substring-search";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-history-substring-search";
-          rev = "v1.1.0";
-          # sha256 = lib.fakeSha256;
-          sha256 = "sha256-GSEvgvgWi1rrsgikTzDXokHTROoyPRlU0FVpAoEmXG4";
-        };
-      }
-    ];
-  };
+			{
+				# will source zsh-history-substring-search.plugin.zsh
+				name = "zsh-history-substring-search";
+				src = pkgs.fetchFromGitHub {
+					owner = "zsh-users";
+					repo = "zsh-history-substring-search";
+					rev = "v1.1.0";
+					# sha256 = lib.fakeSha256;
+					sha256 = "sha256-GSEvgvgWi1rrsgikTzDXokHTROoyPRlU0FVpAoEmXG4";
+				};
+			}
+		];
+	};
 }
