@@ -1,9 +1,17 @@
+{ ... }:
 {
-  programs.git = {
-    enable = true;
-    userName = "Shom Bandopadhaya";
-    userEmail = "shom@bandopadhaya.com";
-    extraConfig.init.defaultBranch = "main";
-  };
+	programs.git = {
+		enable = true;
+		settings = {
+			user = {
+				name = "Shom Bandopadhaya";
+				email = "shom@bandopadhaya.com";
+				signingkey = "2231A3331BA5DF5B!";
+			};
+			init.defaultBranch = "main";
+			commit.gpgsign = "true";
+			merge.ff = "no";
+			pull.rebase = "true";
+		};
+	};
 }
-
