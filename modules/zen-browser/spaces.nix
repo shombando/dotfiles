@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
 	userName = config.home.username;
 	containers = config.programs.zen-browser.profiles.${userName}.containers;
