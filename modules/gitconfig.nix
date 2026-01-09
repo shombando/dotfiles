@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
 	programs.git = {
 		enable = true;
@@ -12,6 +12,11 @@
 			commit.gpgsign = "true";
 			merge.ff = "no";
 			pull.rebase = "true";
+			config = {
+				credential.helper = "${
+					pkgs.git.override { withLibsecret = true; }
+				}/bin/git-credential-libsecret";
+			};
 		};
 	};
 }
