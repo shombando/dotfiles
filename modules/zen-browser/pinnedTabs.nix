@@ -74,6 +74,13 @@ let
 			url = "https://readeck.shom.dev";
 			position = 101;
 		};
+		"forgejo" = {
+			id = "cd2c9ec5-54fb-41f8-b50e-77b0df27c8c1";
+			container = containers.vps.id;
+			workspace = spaces."😎".id;
+			url = "https://git.shom.dev";
+			position = 102;
+		};
 		"gts" = {
 			id = "4ece24d9-a4df-4c41-96e0-ab3453c28eff";
 			container = containers.fedi.id;
