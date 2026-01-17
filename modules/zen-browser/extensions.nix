@@ -42,6 +42,13 @@ let
 		install_url = moz "multi-account-containers";
 		installation_mode = "force_installed";
 	};
+
+	# Readeck
+	"readeck@readeck.com" = {
+		install_url = moz "readeck";
+		installation_mode = "force_installed";
+	};
+
 	"*".installation_mode = "blocked"; # blocks all addons except the ones specified
   };
 in

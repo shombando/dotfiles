@@ -15,6 +15,15 @@ let
 			editedTitle = true;
 			position = 001;
 		};
+		localFolder = {
+			id = "bd20b0f2-2ec3-492d-87b1-7794a11a1d10";
+			container = containers.local.id;
+			workspace = spaces."😎".id;
+			isGroup = true;
+			isFolderCollapsed = true;
+			editedTitle = true;
+			position = 002;
+		};
 	};
 
 	pins = {
@@ -119,6 +128,31 @@ let
 			folderParentId = pinnedFolders.vpsFolder.id;
 			url = "https://umami.shom.dev";
 			position = 203;
+		};
+		"miniflux" = {
+			id = "588230ea-dc7a-4341-ad4b-3c650ec737b6";
+			container = containers.vps.id;
+			workspace = spaces."😎".id;
+			folderParentId = pinnedFolders.vpsFolder.id;
+			url = "https://reader.shom.dev";
+			position = 204;
+		};
+		"local" = pinnedFolders.localFolder;
+		"syncthing" = {
+			id = "525e35e1-e005-471e-b82c-d6204793014f";
+			container = containers.local.id;
+			workspace = spaces."😎".id;
+			folderParentId = pinnedFolders.localFolder.id;
+			url = "http://127.0.0.1:8384/";
+			position = 301;
+		};
+		"immich" = {
+			id = "48797c76-7caa-48c2-a38f-0020a82e4423";
+			container = containers.local.id;
+			workspace = spaces."😎".id;
+			folderParentId = pinnedFolders.localFolder.id;
+			url = "http://127.0.0.1:2283/";
+			position = 302;
 		};
 	};
 in {
