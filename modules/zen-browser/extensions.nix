@@ -49,6 +49,12 @@ let
 		installation_mode = "force_installed";
 	};
 
+	# Hister
+	"{f0bda7ce-0cda-42dc-9ea8-126b20fed280}" = {
+		install_url = moz "hister";
+		installation_mode = "force_installed";
+	};
+
 	"*".installation_mode = "blocked"; # blocks all addons except the ones specified
   };
 in
