@@ -38,6 +38,7 @@ let
 
 in {
 	home.packages = with pkgs; [
+    atuin
 		bash
 		bat
 		curl
@@ -56,6 +57,12 @@ in {
 		xcp
 		zsh
 	];
+
+  programs.atuin = {
+    enable = true;
+    enableBashIntegration = config.programs.bash.enable;
+    enableZshIntegration = config.programs.zsh.enable;
+  };
 
   programs.bash = {
 		enable = true;
