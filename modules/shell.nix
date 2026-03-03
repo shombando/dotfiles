@@ -62,6 +62,11 @@ in {
     enable = true;
     enableBashIntegration = config.programs.bash.enable;
     enableZshIntegration = config.programs.zsh.enable;
+    settings = {
+      filter_mode = "directory";
+      style = "auto";
+      enter_accept = true;
+    };
   };
 
   programs.bash = {
