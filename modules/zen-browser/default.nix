@@ -23,6 +23,7 @@ in
 	programs.zen-browser = {
 		#https://github.com/0xc000022070/zen-browser-flake
 		enable = true;
+    suppressXdgMigrationWarning = true;
 		nativeMessagingHosts = [pkgs.firefoxpwa];
 
 		policies = {

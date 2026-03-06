@@ -53,6 +53,11 @@ let
 			icon = "circle";
 			id = 10;
 		};
+		search = {
+			color = "toolbar";
+			icon = "circle";
+			id = 11;
+		};
 	};
 in
 {
