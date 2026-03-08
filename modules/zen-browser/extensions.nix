@@ -9,6 +9,7 @@ let
   "uBlock0@raymondhill.net" = {
     install_url = moz "ublock-origin";
     installation_mode = "force_installed";
+    private_browsing = true;
     default_area = "navbar"; # pinned
   };
 
@@ -23,11 +24,13 @@ let
 	"addon@darkreader.org" = {
 		install_url = moz "darkreader";
 		installation_mode = "force_installed";
+    private_browsing = true;
 	};
 
 	# Vimium
 	"{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
 		install_url = moz "vimium-ff";
+    private_browsing = true;
 		installation_mode = "force_installed";
 	};
 
@@ -36,6 +39,7 @@ let
 		install_url = moz "consent-o-matic";
 		installation_mode = "force_installed";
 	};
+    private_browsing = true;
 
 	# Firefox Multi-Account Containers
 	"@testpilot-containers" = {
@@ -53,6 +57,7 @@ let
 	"{f0bda7ce-0cda-42dc-9ea8-126b20fed280}" = {
 		install_url = moz "hister";
 		installation_mode = "force_installed";
+    private_browsing = true;
 	};
 
 	"*".installation_mode = "blocked"; # blocks all addons except the ones specified
