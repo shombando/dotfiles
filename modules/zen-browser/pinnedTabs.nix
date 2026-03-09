@@ -13,7 +13,7 @@ let
 			isGroup = true;
 			isFolderCollapsed = true;
 			editedTitle = true;
-			position = 001;
+			position = 100;
 		};
 		localFolder = {
 			id = "bd20b0f2-2ec3-492d-87b1-7794a11a1d10";
@@ -22,7 +22,7 @@ let
 			isGroup = true;
 			isFolderCollapsed = true;
 			editedTitle = true;
-			position = 002;
+			position = 200;
 		};
 	};
 
@@ -74,35 +74,35 @@ let
 			container = containers.tidal.id;
 			workspace = spaces."😎".id;
 			url = "https://tidal.com";
-			position = 100;
+			position = 900;
 		};
 		"readeck" = {
 			id = "b044a63b-ef46-429b-ae15-14e78c578078";
 			container = containers.vps.id;
 			workspace = spaces."😎".id;
 			url = "https://readeck.shom.dev";
-			position = 101;
+			position = 901;
 		};
 		"forgejo" = {
 			id = "cd2c9ec5-54fb-41f8-b50e-77b0df27c8c1";
 			container = containers.vps.id;
 			workspace = spaces."😎".id;
 			url = "https://git.shom.dev";
-			position = 102;
+			position = 902;
 		};
 		"gts" = {
 			id = "4ece24d9-a4df-4c41-96e0-ab3453c28eff";
 			container = containers.fedi.id;
 			workspace = spaces."😎".id;
 			url = "https://gts.shom.dev/settings";
-			position = 800;
+			position = 903;
 		};
 		"phanpy" = {
 			id = "eeebd670-c879-4dfb-b015-6c472e965b98";
 			container = containers.fedi.id;
 			workspace = spaces."😎".id;
 			url = "https://social.shom.dev";
-			position = 900;
+			position = 904;
 		};
 		"vps" = pinnedFolders.vpsFolder;
 		"uptime" = {
@@ -111,7 +111,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.vpsFolder.id;
 			url = "https://status.shom.dev";
-			position = 201;
+			position = 101;
 		};
 		"ntfy" = {
 			id = "cef1c204-14f8-4ddb-8fbc-9dc363f0f921";
@@ -119,7 +119,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.vpsFolder.id;
 			url = "https://ntfy.shom.dev";
-			position = 202;
+			position = 102;
 		};
 		"umami" = {
 			id = "a41a1aaf-67c2-44af-b4d6-e373ae6cfb1a";
@@ -127,7 +127,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.vpsFolder.id;
 			url = "https://umami.shom.dev";
-			position = 203;
+			position = 103;
 		};
 		"miniflux" = {
 			id = "588230ea-dc7a-4341-ad4b-3c650ec737b6";
@@ -135,7 +135,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.vpsFolder.id;
 			url = "https://reader.shom.dev";
-			position = 204;
+			position = 104;
 		};
 		"local" = pinnedFolders.localFolder;
 		"syncthing" = {
@@ -144,7 +144,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.localFolder.id;
 			url = "http://127.0.0.1:8384/";
-			position = 301;
+			position = 201;
 		};
 		"immich" = {
 			id = "48797c76-7caa-48c2-a38f-0020a82e4423";
@@ -152,7 +152,7 @@ let
 			workspace = spaces."😎".id;
 			folderParentId = pinnedFolders.localFolder.id;
 			url = "http://127.0.0.1:2283/";
-			position = 302;
+			position = 202;
 		};
 	};
 in {
