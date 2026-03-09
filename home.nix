@@ -1,13 +1,16 @@
 { config, pkgs, pkgs-unstable, ... }:
 
-{
+let
+	userName = "shom";
+	userHome = "/home/${userName}";
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "shom";
-  home.homeDirectory = "/home/shom";
+  home.username = userName;
+  home.homeDirectory = userHome;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
