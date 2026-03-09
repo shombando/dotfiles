@@ -10,7 +10,7 @@ let
 		ebay.metaData.alias = "@e";
 		wikipedia.metaData.alias = "@w";
 
-		"Hister" = {
+		hister = {
 			urls = [{
 				template = "http://localhost:4433";
 				params = [
@@ -30,7 +30,7 @@ let
 			definedAliases = [ "@q" ];
 		};
 
-		"Nix Packages" = {
+		nixPackages = {
 			urls = [{
 				template = "https://search.nixos.org/packages";
 				params = [
@@ -42,7 +42,7 @@ let
 			definedAliases = [ "@np" ];
 		};
 
-		"Nix Home Manager Options" = {
+		nixHomeManagerOptions = {
 			urls = [{
 				template = "https://home-manager-options.extranix.com";
 				params = [{ name = "query"; value = "{searchTerms}"; }];
@@ -51,7 +51,7 @@ let
 			definedAliases = [ "@no" ];
 		};
 
-		"NixOS Wiki" = {
+		nixWiki = {
 			urls = [{
 				template = "https://nixos.wiki/index.php";
 				params = [{ name = "search"; value = "{searchTerms}"; }];
@@ -64,9 +64,8 @@ in
 {
 	programs.zen-browser.profiles.${userName}.search = {
 		force = true;
-		default = "Hister";
-		order = [ "Hister" "Qwant" "DuckDuckGo" "Wikipedia (en)" ];
-		# order = [ hister quant ddg wikipedia ];
+		default = "hister";
+		order = [ "hister" "qwant" "ddg" "wikipedia" ];
 		engines = searchEngines;
 	};
 }
